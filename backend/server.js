@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 
 import connectDB from "./config/db.js";
 
+import categoryRoutes from "./routes/categoryRoutes.js";
+
 dotenv.config();
 
 const app = express();
@@ -17,6 +19,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
+app.use("/api/categories", categoryRoutes);
 
 // Test API
 app.get("/api/health", (req, res) => {
